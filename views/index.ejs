@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            border-radius: 5px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: rgb(48, 48, 48);
+            margin: none;
+            padding: 30px;
+
+        }
+
+        textarea {
+            resize: none;
+
+
+        }
+
+        input[type='text'],
+        textarea {
+            display: block;
+
+            width: 100%;
+        }
+
+        input[type='text'],
+        textarea,
+        input[type='submit'] {
+
+            padding: 10px;
+            background-color: rgb(83, 83, 83);
+            color: #ffffff;
+            border: none;
+            outline: none;
+            margin-top: 10px;
+
+        }
+
+        .task {
+
+
+            width: calc(20% - 50px);
+            background-color: rgb(69, 69, 69);
+            padding: 20px;
+            color: rgb(255, 255, 255);
+            position: relative;
+            min-width: 120px;
+
+        }
+
+        input[type='submit'] {
+            background-color: rgb(85, 85, 255);
+            border: none;
+            margin-top: 20px;
+        }
+
+        .tasks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 70px;
+            /* align-items: flex-start; */
+
+        }
+
+        .details {
+            position: absolute;
+            bottom: 12px;
+            cursor: pointer;
+            color: rgb(153, 196, 44);
+
+        }
+
+        .notask {
+            color: rgb(186, 184, 184);
+        }
+
+        .edit {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            cursor: pointer;
+            color: rgb(99, 99, 99);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="/submit" method="POST">
+            <input type="text" placeholder="task name" name="title" required>
+            <textarea placeholder="details" name="text"></textarea>
+            <input type="submit" value="Add Task">
+        </form>
+        <div class="tasks">
+            <% if(files.length> 0){ %>
+                <% files.forEach((file)=>{ %>
+                    <div class="task">
+                        <h3 style="margin: 0;padding-bottom:20px;">
+                            <%= file %>
+                        </h3>
+                        <!-- word-wrap: break-word;  css property-->
+                        <div>
+                            <a class="details" href="/task/<%= file %>">Details</a>
+                            <a class="edit" href="/edit/<%= file %>">Edit</a>
+                        </div>
+                    </div>
+
+                    <% })%>
+                        <% }else {%>
+
+                            <div class="notask">
+                                NO TASK YET
+                            </div>
+
+                            <%}%>
+
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            border-radius: 5px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            
+        }
+
+        body {
+            background-color: rgb(48, 48, 48);
+            margin: none;
+            padding: 30px;
+   
+
+        }
+        h2 , pre{
+            color: white;
+        }
+        h2{
+            margin: 30px 0 10px 0;
+            color: yellowgreen;
+        }
+      pre{
+        white-space: pre-wrap; /* Preserve formatting and wrap lines */
+      }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="/">Go back</a>
+        <h2><%=title%></h2>
+        <pre><%= content %></pre>
+    </div>
+</body>
+
+</html>
