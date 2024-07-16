@@ -54,20 +54,15 @@ app.post("/submit",async function (req, res) {
 });
 
 
-
-// app.post('/delete/:file', function(req, res){
-//     const filename = req.params.file;
-//     console.log(filename);
-
-//     fs.unlink(filename, (err) => {
-//         if (err) {
-//             console.error('File deletion error:', err);
-//             return res.status(500).send('Server error');
-//         }
-//         res.redirect('/');
-//     });
-// });
-
+app.get('/delete/:file', function(req, res) {
+    const filename = req.params.file;
+    const filePath = path.join(__dirname, 'tasks' , filename); // Path to the tasks folder
+    
+        fs.unlink(filePath, (err) => {
+                res.redirect('/');
+        });
+  
+});
 
 
 app.listen(3000);
