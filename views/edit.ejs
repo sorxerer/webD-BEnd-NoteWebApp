@@ -96,8 +96,5 @@
         <textarea placeholder="Previous Details" name="PreviousDetails" readonly ><%=details%></textarea>
         <textarea placeholder="New Details" name="NewDetails" ></textarea >
         <input type="submit" value="Update">
-        
-        <!-- <form action="/delete/<%=filename%>" method="POST" style="display:inline;">
-            <input type="submit" value="delete">
-        </form> -->
+        <a href="/delete/<%= filename%>">delete</a>
 </html>
